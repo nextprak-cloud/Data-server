@@ -1,0 +1,20 @@
+import requests
+
+print("⏳ इंटरनेट से एक मजेदार विचार/चुटकुला मंगाया जा रहा है...\n")
+
+# एक फ्री एपीआई (API) जो सीधे विचार/चुटकुले देती है
+url = "https://official-joke-api.appspot.com/random_joke"
+
+try:
+    # 1. रिक्वेस्ट भेजना
+    response = requests.get(url)
+    
+    # 2. डेटा को डिक्शनरी में बदलना
+    joke_data = response.json()
+    
+    # 3. स्क्रीन पर प्रिंट करना
+    print("😂 सवाल:", joke_data["setup"])
+    print("👉 जवाब:", joke_data["punchline"])
+
+except Exception as e:
+    print("❌ कोई दिक्कत आई:", e)
